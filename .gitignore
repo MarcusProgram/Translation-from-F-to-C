@@ -1,32 +1,50 @@
-# Prerequisites
-*.d
+#include <iostream>
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+using namespace std;
+int main() {
+  double tc, tf;
+  string n;
+  int cont;
+  cout << endl;
+  cout << "Из какой вилечины будем переводить?(Фарингейт-Цельсий, или наоборот): ";
+  cin >> n;
+  if (n == "фарингейты" || n == "Фарингейты" || n == "фарингейт" || n == "Фарингейт" || n == "1" || n == "Из фарингейтов" || n == "из фарингейтов") {
+    cout << "Введите количество Фарингейт: ";
+    cin >> tf;
+    tc = (tf - 32) * 5 / 9;
+    cout <<"Из "<<tf<<" Фарингейт получаем: "<< tc<<" градусов Цельсия." << endl;
+    cout << "Продолжить?(1 - Да, 2 - Нет) ";
+    cin >> cont;
+    if (cont == 1){
+       main();
+    }else if (cont == 2){
+      cout << "Пока!";
+      return 0;
+    }else{
+      cout << "Пожалуйста, введите что то из предложенных вариантов.";
+      return 0;
+    }
+   
+  } else if (n == "цельсии" || n == "цельсий" || n == "Цельсии" || n == "Цельсий" || n == "2" || n == "Из цельсиев" || n == "из цельсий" || n == "Из цельсий" || n == "из цельсиев") {
+    cout << "Введите количество Цельсий:";
+    cin >> tc;
+    tf = (tc * 9/5) + 32;
+    cout <<"Из "<<tc<<" Цельсий получаем: "<< tf<<" градусов Фарингейта."<< endl;
+    cout << "Продолжить?(1 - Да, 2 - Нет) ";
+    cin >> cont;
+    if (cont == 1){
+       main();
+    }else if (cont == 2){
+      cout << "Пока!";
+      return 0;
+    }else{
+      cout << "Пожалуйста, введите что то из предложенных вариантов.";
+      return 0;
+    }
+  }
+  else {
+    cout << "Не знаю такого:(" << endl<<endl;
+    main();
+  }
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+}
